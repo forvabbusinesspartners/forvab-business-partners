@@ -59,7 +59,7 @@ export default function Contact() {
   const partnershipHref = onHome ? '#partnership' : 'index.html#partnership'
 
   return (
-    <section id="contact" className="relative scroll-mt-24 py-24 sm:py-32">
+    <section id="contact" className="relative scroll-mt-24 pb-12 pt-24 sm:pb-16 sm:pt-32">
       <div aria-hidden="true" className="glow-blob -left-40 top-20 h-96 w-96" />
       <div className="container-x relative">
         <Reveal>
