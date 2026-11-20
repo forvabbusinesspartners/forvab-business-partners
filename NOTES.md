@@ -7,7 +7,7 @@ A checklist of things to confirm or finish before the site goes live.
       (`https://formspree.io/f/xdegdqzd`); submissions go to
       Forvabbusinesspartnersllc@protonmail.com. End-to-end delivery verified
       2026-11-20 (a test submission arrived in the Proton inbox).
-- [x] **Live domain** — set to `forvabbusinesspartners.github.io/forvab-business-partners`
+- [x] **Live domain** — set to `forvabpartnershipsolutions.online`
       in `public/sitemap.xml` and `public/robots.txt` (the GitHub Pages URL).
 - [ ] **Legal details to confirm with the owner**
   - [ ] Data-retention wording in the Privacy Policy — no specific retention

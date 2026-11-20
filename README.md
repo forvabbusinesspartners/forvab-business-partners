@@ -63,7 +63,7 @@ builds the site and deploys it automatically.
   (`https://formspree.io/f/xdegdqzd`); submissions are delivered to
   Forvabbusinesspartnersllc@protonmail.com. End-to-end delivery was verified
   2026-11-20 (a test submission arrived in the Proton inbox).
-- **Live domain** — set to `forvabbusinesspartners.github.io/forvab-business-partners`
+- **Live domain** — set to `forvabpartnershipsolutions.online`
   in `public/sitemap.xml` and `public/robots.txt` (the GitHub Pages URL).
 
 ## Project structure
