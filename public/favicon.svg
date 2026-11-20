@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="forvab-favicon-gradient" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="45%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#065F46"/>
+    </linearGradient>
+  </defs>
+  <!-- Matte-black rounded tile so the mark reads on any browser theme -->
+  <rect width="64" height="64" rx="13" fill="#0A0A0A"/>
+  <!-- Geometric F monogram: bold bars with 45° ascending diagonal cuts -->
+  <g transform="translate(10 10) scale(0.9166667)">
+    <path d="M8 8h9v32H8V8Z M8 8h32l-9 9H8V8Z M8 22h25l-8 8H8v-8Z" fill="url(#forvab-favicon-gradient)"/>
+  </g>
+</svg>

@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  /* Decorative glow blobs bleed past the viewport edge by design;
+     clip them at the viewport so they never create horizontal scroll. */
+  overflow-x: clip;
+}
+
+body {
+  @apply bg-ink font-sans text-neutral-300 antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: rgba(16, 185, 129, 0.85);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f3d33;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #065f46;
+}
+
+@layer components {
+  /* Page container */
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  /* Small uppercase eyebrow label above headings */
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.32em] text-emerald-400;
+  }
+
+  /* Primary CTA — luminous emerald pill */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_0_32px_rgba(16,185,129,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-400 hover:shadow-[0_0_44px_rgba(16,185,129,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-ink;
+  }
+
+  /* Secondary CTA — glass pill */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-400/60 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-ink;
+  }
+
+  /* Frosted glass surface */
+  .glass {
+    @apply border border-white/10 bg-white/[0.04] backdrop-blur-xl;
+  }
+
+  /* Card with premium hover lift + emerald edge glow */
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1.5 hover:border-emerald-500/40 hover:shadow-[0_20px_60px_-20px_rgba(16,185,129,0.35)];
+  }
+
+  /* Form fields */
+  .field-label {
+    @apply mb-2 block text-sm font-medium text-neutral-200;
+  }
+  .field-input {
+    @apply w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[15px] text-white outline-none transition placeholder:text-neutral-500 focus:border-emerald-400/70 focus:bg-white/[0.07] focus:ring-2 focus:ring-emerald-500/30;
+  }
+  .field-input-error {
+    @apply border-red-500/60 focus:border-red-400/70 focus:ring-red-500/30;
+  }
+  .field-error {
+    @apply mt-1.5 text-sm text-red-400;
+  }
+  .field-hint {
+    @apply mt-1.5 text-xs text-neutral-500;
+  }
+
+  /* Gradient text accent */
+  .text-gradient-emerald {
+    @apply bg-gradient-to-r from-emerald-300 via-emerald-400 to-emerald-600 bg-clip-text text-transparent;
+  }
+
+  /* Soft emerald glow blob (decorative, absolute-positioned) */
+  .glow-blob {
+    @apply pointer-events-none absolute rounded-full bg-emerald-500/20 blur-[110px];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
