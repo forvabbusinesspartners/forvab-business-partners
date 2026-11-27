@@ -546,9 +546,7 @@ export default function BusinessPartnership() {
                 The information and documents you provide on this form are used
                 only to review your business partnership application and to
                 contact you about it. Your submission is transmitted over a
-                secure (HTTPS) connection and delivered directly to our
-                application inbox; access is restricted to authorized members
-                of our team. We do not sell your information.
+                secure server.
               </p>
             </div>
           </div>
