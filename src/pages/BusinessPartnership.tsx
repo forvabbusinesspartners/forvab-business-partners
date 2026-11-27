@@ -550,17 +550,6 @@ export default function BusinessPartnership() {
                 application inbox; access is restricted to authorized members
                 of our team. We do not sell your information.
               </p>
-              <p>
-                Please do not provide a Social Security Number or full
-                payment-card details through this form — we never ask for them
-                here. Uploads are limited to PDF, JPG and PNG files of up to
-                10 MB each (20 MB in total). Questions about your information
-                can be sent to {COMPANY.email}. See our{' '}
-                <a href="privacy.html" className="text-emerald-300 underline underline-offset-2">
-                  Privacy Policy
-                </a>{' '}
-                for more detail.
-              </p>
             </div>
           </div>
 
