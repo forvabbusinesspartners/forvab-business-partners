@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import type { DragEvent, FormEvent } from 'react'
 import { COMPANY, PARTNERSHIP_APPLICATION_ENDPOINT } from '../config'
 import Reveal from '../components/Reveal'
+import SecureBadge from '../components/SecureBadge'
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
@@ -377,6 +378,9 @@ export default function BusinessPartnership() {
     <section className="pb-24 pt-32 sm:pb-32">
       <div className="container-x">
         <Reveal className="mx-auto max-w-3xl text-center">
+          <div className="mb-9 flex justify-center">
+            <SecureBadge />
+          </div>
           <p className="eyebrow">Partnership</p>
           <h1 className="mt-4 font-display text-4xl leading-tight text-white sm:text-5xl">
             Business Partnership Application
