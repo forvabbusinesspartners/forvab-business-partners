@@ -258,44 +258,14 @@ function Section({
 // Page
 // ─────────────────────────────────────────────────────────────────────────────
 
-const SECTION_TITLES = [
-  'Personal Information',
-  'Identity Verification',
-  'Business Information',
-  'Business Documents',
-  'Partnership Information',
-]
-
 export default function BusinessPartnership() {
   const formRef = useRef<HTMLFormElement>(null)
   const [status, setStatus] = useState<FormStatus>('idle')
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
-  const [started, setStarted] = useState<ReadonlySet<number>>(new Set())
-
   // File state, keyed by the backend's file field names.
   const [files, setFiles] = useState<Record<string, File[]>>({})
-  const setFieldFiles = (name: string, section: number) => (next: File[]) => {
+  const setFieldFiles = (name: string) => (next: File[]) => {
     setFiles((prev) => ({ ...prev, [name]: next }))
-    if (next.length > 0) markStarted(section)
-  }
-
-  const markStarted = (index: number) => {
-    setStarted((prev) => {
-      if (prev.has(index)) return prev
-      const next = new Set(prev)
-      next.add(index)
-      return next
-    })
-  }
-
-  // Any typed input marks its section as started (drives the progress bar).
-  const handleFormChange = (e: FormEvent<HTMLFormElement>) => {
-    const target = e.target as HTMLElement
-    const section = target.closest('[data-section]')
-    if (section) {
-      const idx = Number(section.getAttribute('data-section'))
-      if (!Number.isNaN(idx)) markStarted(idx)
-    }
   }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -391,49 +361,11 @@ export default function BusinessPartnership() {
             review your application and explore potential partnership
             opportunities.
           </p>
-          <p className="mt-4 text-sm leading-relaxed text-neutral-500">
-            Every field on this form is optional. Provide as much or as little
-            information as you wish — you can submit your application at any
-            point.
-          </p>
         </Reveal>
-
-        {/* Section progress indicator */}
-        <div className="mx-auto mt-10 max-w-3xl">
-          <div
-            className="h-2 overflow-hidden rounded-full bg-white/10"
-            role="progressbar"
-            aria-valuemin={0}
-            aria-valuemax={SECTION_TITLES.length}
-            aria-valuenow={started.size}
-            aria-label="Application sections started"
-          >
-            <div
-              className="h-full rounded-full bg-emerald-500 transition-all duration-500"
-              style={{ width: `${(started.size / SECTION_TITLES.length) * 100}%` }}
-            />
-          </div>
-          <ol className="mt-4 flex flex-wrap justify-center gap-2">
-            {SECTION_TITLES.map((title, i) => (
-              <li
-                key={title}
-                className={`rounded-full border px-3 py-1.5 text-xs font-medium transition ${
-                  started.has(i)
-                    ? 'border-emerald-400/60 bg-emerald-500/15 text-emerald-200'
-                    : 'border-white/10 bg-white/[0.03] text-neutral-400'
-                }`}
-              >
-                {started.has(i) ? '✓ ' : ''}
-                {i + 1}. {title}
-              </li>
-            ))}
-          </ol>
-        </div>
 
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          onChange={handleFormChange}
           noValidate
           className="mx-auto mt-12 max-w-3xl space-y-8"
         >
@@ -496,12 +428,12 @@ export default function BusinessPartnership() {
               <DropField
                 label="Upload Government-Issued ID (Front)"
                 files={files.id_front || []}
-                onChange={setFieldFiles('id_front', 1)}
+                onChange={setFieldFiles('id_front')}
               />
               <DropField
                 label="Upload Government-Issued ID (Back)"
                 files={files.id_back || []}
-                onChange={setFieldFiles('id_back', 1)}
+                onChange={setFieldFiles('id_back')}
               />
             </div>
           </Section>
@@ -548,29 +480,29 @@ export default function BusinessPartnership() {
               <DropField
                 label="Upload Business Registration Certificate"
                 files={files.business_registration_certificate || []}
-                onChange={setFieldFiles('business_registration_certificate', 3)}
+                onChange={setFieldFiles('business_registration_certificate')}
               />
               <DropField
                 label="Upload Certificate of Good Standing"
                 files={files.certificate_of_good_standing || []}
-                onChange={setFieldFiles('certificate_of_good_standing', 3)}
+                onChange={setFieldFiles('certificate_of_good_standing')}
               />
               <DropField
                 label="Upload Business License (if applicable)"
                 files={files.business_license || []}
-                onChange={setFieldFiles('business_license', 3)}
+                onChange={setFieldFiles('business_license')}
               />
               <DropField
                 label="Upload Business Insurance Certificate"
                 files={files.business_insurance_certificate || []}
-                onChange={setFieldFiles('business_insurance_certificate', 3)}
+                onChange={setFieldFiles('business_insurance_certificate')}
               />
             </div>
             <div className="mt-6">
               <DropField
                 label="Additional Supporting Documents"
                 files={files.additional_documents || []}
-                onChange={setFieldFiles('additional_documents', 3)}
+                onChange={setFieldFiles('additional_documents')}
                 multiple
               />
             </div>
