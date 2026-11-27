@@ -67,6 +67,22 @@ export default function Hero() {
           variants={itemVariants}
           className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
         >
+          <a href="business-partnership.html" className="btn-primary">
+            Partnership for Business
+            <svg
+              className="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
           <a href="#services" className="btn-ghost">
             Explore Our Services
             <svg

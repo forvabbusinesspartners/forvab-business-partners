@@ -12,6 +12,15 @@
  */
 export const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xdegdqzd'
 
+/**
+ * Backend endpoint for the dedicated Business Partnership Application page
+ * (/business-partnership.html). Submissions are packaged by the
+ * forvab-verification-api Netlify function and delivered by email, with all
+ * uploaded documents in a single ZIP attachment.
+ */
+export const PARTNERSHIP_APPLICATION_ENDPOINT =
+  'https://forvab-verification-api.netlify.app/.netlify/functions/submit-partnership'
+
 export const COMPANY = {
   name: 'Forvab Business Partners LLC',
   shortName: 'FORVAB Business Partners',
